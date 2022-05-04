@@ -10,38 +10,40 @@ function Offer({ offers }) {
       <img src={currentOffer.product_image.secure_url} alt="not found" />
       <div className="offer-details">
         <div className="top-details">
-          <p>{currentOffer.product_price}</p>
+          <p className="firstp">{currentOffer.product_price} €</p>
 
           <p>
-            MARQUE :{" "}
+            <span>MARQUE :</span>{" "}
             {currentOffer.product_details[0] &&
-              currentOffer.product_details[0].MARQUE}
+              currentOffer.product_details[0].MARQUE.toUpperCase()}
           </p>
           <p>
-            TAILLE :{" "}
+            <span>TAILLE :</span>{" "}
             {currentOffer.product_details[1] &&
-              currentOffer.product_details[1].TAILLE}
+              currentOffer.product_details[1].TAILLE.toUpperCase()}
           </p>
           <p>
-            ETAT :{" "}
+            <span>ETAT :</span>{" "}
             {currentOffer.product_details[2] &&
-              currentOffer.product_details[2].ETAT}
+              currentOffer.product_details[2].ÉTAT.toUpperCase()}
           </p>
           <p>
-            COULEUR :{" "}
+            <span>COULEUR :</span>{" "}
             {currentOffer.product_details[3] &&
-              currentOffer.product_details[3].COULEUR}
+              currentOffer.product_details[3].COULEUR.toUpperCase()}
           </p>
           <p>
-            EMPLACEMENT :{" "}
+            <span>EMPLACEMENT :</span>{" "}
             {currentOffer.product_details[4] &&
-              currentOffer.product_details[4].EMPLACEMENT}
+              currentOffer.product_details[4].EMPLACEMENT.toUpperCase()}
           </p>
         </div>
         <div className="bottom-details">
+          <div>
+            <p className="pname">{currentOffer.product_name}</p>
+            <p className="pdescription">{currentOffer.product_description}</p>
+          </div>
           <div className="bottom-owner-details">
-            <p>{currentOffer.product_name}</p>
-            <p>{currentOffer.product_description}</p>
             <img
               src={
                 currentOffer.owner.account.avatar &&
