@@ -7,11 +7,14 @@ function Header() {
       <input
         className="searchbar"
         type="text"
-        placeholder="Barre de recherche"
+        placeholder="  Barre de recherche"
       />
-      <button>S'inscrire</button>
-      <button>Se connecter</button>
-      <button>Vends tes articles</button>
+      <div className="header-grey-buttons">
+        <button>S'inscrire</button>
+        <button>Se connecter</button>
+      </div>
+
+      <button className="header-green-button">Vends tes articles</button>
     </div>
   );
 }
