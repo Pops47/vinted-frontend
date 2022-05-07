@@ -1,0 +1,63 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 275px;
+  justify-content: center;
+  margin: 50px auto;
+  .title {
+    color: black;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  input {
+    color: black;
+    height: 50px;
+    border: none;
+    border-bottom: solid lightpink 1px;
+    margin-bottom: 5px;
+  }
+  input::placeholder {
+    color: #999999;
+    font-size: 16px;
+  }
+  input:focus {
+    outline: none !important;
+  }
+  div {
+    margin-top: 20px;
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    .checkbox {
+      transform: scale(1.8);
+      margin-right: 20px;
+      color: #999999;
+    }
+    span {
+      color: #999999;
+    }
+  }
+  p {
+    font-size: 12px;
+    padding-left: 10px;
+  }
+  .warning {
+    margin-bottom: 30px;
+    line-height: 16px;
+    color: #999999;
+  }
+  .green-button {
+    background-color: #09adb6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  .green-text {
+    color: #09adb6;
+  }
+}
+//in Login.js
+.connect-button {
+  margin-top: 30px;
+}

@@ -1,8 +1,27 @@
 import { Link } from "react-router-dom";
 import hero from "../assets/images/hero.jpg";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import "./Home.scss";
 
-function Home({ offers }) {
-  return (
+function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(
+        "https://lereacteur-vinted-api.herokuapp.com/offers"
+      );
+      setData(response.data);
+      setIsLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  return isLoading ? (
+    <p>Loading...</p>
+  ) : (
     <div className="homeMain">
       <div className="homeHero">
         <img src={hero} alt="two women looking at clothes" />
@@ -12,11 +31,9 @@ function Home({ offers }) {
         </div>
       </div>
       <div className="homeItems">
-        {offers.map((item) => {
-          console.log(item);
-
+        {data.offers.map((item) => {
           return (
-            <div className="offer-in-home">
+            <div key={item._id} className="homeOffer">
               <div className="topOffer">
                 <img
                   src={
@@ -35,7 +52,7 @@ function Home({ offers }) {
                       item.product_image.secure_url &&
                       item.product_image.secure_url
                     }
-                    alt="offer"
+                    alt=""
                   />
                 </Link>{" "}
               </div>

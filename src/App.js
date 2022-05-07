@@ -1,38 +1,36 @@
 import "./App.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import Home from "./containers/Home";
 import Offer from "./containers/Offer";
 import Header from "./components/Header";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import Signup from "./containers/Signup";
+import Login from "./containers/Login";
+import Cookies from "js-cookie";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+library.add(faMagnifyingGlass);
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState();
+  const [token, setToken] = useState(Cookies.get("token") || null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/offers"
-        );
-        setData(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error.response);
-      }
-    };
-    fetchData();
-  }, []);
+  const setUser = (token) => {
+    if (token === null) {
+      Cookies.remove("token");
+    } else {
+      Cookies.set("token", token, { expires: 10 });
+    }
+    setToken(token);
+  };
 
-  return isLoading ? (
-    <p>Loading...</p>
-  ) : (
+  return (
     <Router>
-      <Header />
+      <Header token={token} setUser={setUser} />
       <Routes>
-        <Route path="/" element={<Home offers={data.offers} />} />
-        <Route path="/offer/:id" element={<Offer offers={data.offers} />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/offer/:id" element={<Offer />} />
+        <Route path="/signup" element={<Signup setUser={setUser} />}></Route>
+        <Route path="/login" element={<Login setUser={setUser} />}></Route>
       </Routes>
     </Router>
   );
