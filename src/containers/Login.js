@@ -23,7 +23,15 @@ function Login({ setUser }) {
           password: password,
         }
       );
-    } catch (error) {}
+      setUser(response.data.token);
+      navigate("/");
+    } catch (error) {
+      if (error.response.status === 401) {
+        setErrorMessage("Mot de passe incorrect");
+      } else if (error.response.status === 400) {
+        setErrorMessage("Utlisateur non enregistré");
+      }
+    }
   };
 
   return (
