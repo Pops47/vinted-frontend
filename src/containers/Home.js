@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import hero from "../assets/images/hero.jpg";
+import heroVector from "../assets/images/svgexport-8.svg";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./Home.scss";
@@ -24,7 +25,12 @@ function Home() {
   ) : (
     <div className="homeMain">
       <div className="homeHero">
-        <img src={hero} alt="two women looking at clothes" />
+        <img
+          className="heroImg"
+          src={hero}
+          alt="two women looking at clothes"
+        />
+        <img className="heroVector" src={heroVector} alt="ripped vector" />
         <div className="boxInHero">
           <p>Prêts à faire du tri dans vos placards ?</p>
           <button>Commencer à vendre</button>
