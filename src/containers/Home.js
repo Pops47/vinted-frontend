@@ -42,7 +42,7 @@ function Home({ search }) {
         {data.offers.map((item) => {
           const title = item.product_name;
           return (
-            title.includes(search) && (
+            title.toLowerCase().includes(search.toLowerCase()) && (
               <div key={item._id} className="homeOffer">
                 <div className="topOffer">
                   <img

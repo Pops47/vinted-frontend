@@ -22,7 +22,7 @@ function Header({ token, setUser, search, setSearch }) {
         <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" className="icon" />
         <input
           type="text"
-          name="research"
+          name="search"
           placeholder="Recherche des articles"
           value={search}
           onChange={(e) => {
