@@ -5,7 +5,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./Home.scss";
 
-function Home() {
+function Home({ search }) {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
 
@@ -33,44 +33,49 @@ function Home() {
         <img className="heroVector" src={heroVector} alt="ripped vector" />
         <div className="boxInHero">
           <p>Prêts à faire du tri dans vos placards ?</p>
-          <button>Commencer à vendre</button>
+          <Link to="/publish">
+            <button>Commencer à vendre</button>
+          </Link>
         </div>
       </div>
       <div className="homeItems">
         {data.offers.map((item) => {
+          const title = item.product_name;
           return (
-            <div key={item._id} className="homeOffer">
-              <div className="topOffer">
-                <img
-                  src={
-                    item.owner.account.avatar &&
-                    item.owner.account.avatar.secure_url
-                  }
-                  alt="not found"
-                />
-                <p>{item.owner.account.username}</p>
-              </div>
-              <div className="middleOffer">
-                <Link to={`/offer/${item._id}`}>
-                  {" "}
+            title.includes(search) && (
+              <div key={item._id} className="homeOffer">
+                <div className="topOffer">
                   <img
                     src={
-                      item.product_image.secure_url &&
-                      item.product_image.secure_url
+                      item.owner.account.avatar &&
+                      item.owner.account.avatar.secure_url
                     }
-                    alt=""
+                    alt="not found"
                   />
-                </Link>{" "}
+                  <p>{item.owner.account.username}</p>
+                </div>
+                <div className="middleOffer">
+                  <Link to={`/offer/${item._id}`}>
+                    {" "}
+                    <img
+                      src={
+                        item.product_image.secure_url &&
+                        item.product_image.secure_url
+                      }
+                      alt=""
+                    />
+                  </Link>{" "}
+                </div>
+                <div className="bottomOffer">
+                  <p>{item.product_price} €</p>
+                  <p>
+                    {item.product_details[1].TAILLE &&
+                      item.product_details[1].TAILLE}
+                  </p>
+                  <p>{item.product_details[0].MARQUE}</p>
+                </div>
               </div>
-              <div className="bottomOffer">
-                <p>{item.product_price} €</p>
-                <p>
-                  {item.product_details[1].TAILLE &&
-                    item.product_details[1].TAILLE}
-                </p>
-                <p>{item.product_details[0].MARQUE}</p>
-              </div>
-            </div>
+            )
           );
         })}
       </div>

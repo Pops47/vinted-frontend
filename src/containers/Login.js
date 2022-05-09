@@ -24,7 +24,7 @@ function Login({ setUser }) {
         }
       );
       setUser(response.data.token);
-      navigate("/");
+      navigate("/publish");
     } catch (error) {
       if (error.response.status === 401) {
         setErrorMessage("Mot de passe incorrect");
@@ -36,7 +36,7 @@ function Login({ setUser }) {
 
   return (
     <div>
-      <form type="submit" onSubmit={handleSubmit}>
+      <form className="signup-login-form" type="submit" onSubmit={handleSubmit}>
         <p className="title">Se connecter</p>
 
         <input

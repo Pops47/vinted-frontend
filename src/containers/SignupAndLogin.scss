@@ -1,4 +1,4 @@
-form {
+.signup-login-form {
   display: flex;
   flex-direction: column;
   width: 275px;
@@ -52,6 +52,9 @@ form {
     color: white;
     border: none;
     border-radius: 5px;
+  }
+  .green-button:hover {
+    cursor: pointer;
   }
   .green-text {
     color: #09adb6;

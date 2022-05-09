@@ -26,7 +26,7 @@ function Signup({ setUser }) {
         }
       );
       setUser(response.data.token);
-      navigate("/");
+      navigate("/publish");
     } catch (error) {
       if (error.response.status === 409) {
         setErrorMessage("Cet email est déja utilisé !");
@@ -36,7 +36,7 @@ function Signup({ setUser }) {
 
   return (
     <div>
-      <form type="submit" onSubmit={handleSubmit}>
+      <form className="signup-login-form" type="submit" onSubmit={handleSubmit}>
         <p className="title">S'inscrire</p>
         <input
           type="text"

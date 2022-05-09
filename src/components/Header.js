@@ -1,10 +1,12 @@
 import logoVinted from "../assets/images/logo-vinted.png";
 import { Link, useNavigate } from "react-router-dom";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Header.scss";
 
-function Header({ token, setUser }) {
+function Header({ token, setUser, search, setSearch }) {
   const navigate = useNavigate();
+
   return (
     <div className="header">
       <img
@@ -18,7 +20,15 @@ function Header({ token, setUser }) {
 
       <div className="searchbar">
         <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" className="icon" />
-        <input type="text" placeholder="Recherche des articles" />
+        <input
+          type="text"
+          name="research"
+          placeholder="Recherche des articles"
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        />
       </div>
       {token === null ? (
         <div className="header-grey-buttons">
@@ -37,11 +47,13 @@ function Header({ token, setUser }) {
               navigate("/");
             }}
           >
-            Déconnexion
+            Se déconnecter
           </button>
         </div>
       )}
-      <button className="header-green-button">Vends tes articles</button>
+      <Link to="/publish">
+        <button className="header-green-button">Vends tes articles</button>
+      </Link>
     </div>
   );
 }
