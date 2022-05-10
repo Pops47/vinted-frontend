@@ -1,28 +1,84 @@
-.publishForm {
-  width: 80%;
+.publish-body {
+  background-color: #eaedee;
+}
+.publish-form {
+  width: 70%;
   margin: 0 auto;
   padding: 50px 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  h1 {
-    width: 100%;
-  }
-  div {
+  gap: 20px;
+  section:not(.add-photo) {
+    background-color: white;
     width: 100%;
     display: flex;
-
-    p {
-      flex: 1;
-      font-size: 14px;
-    }
-    input {
-      flex: 1;
+    flex-direction: column;
+    gap: 15px;
+    padding: 25px;
+    border: solid grey 1px;
+    div {
+      display: flex;
+      p {
+        flex: 1;
+        font-size: 14px;
+      }
+      input {
+        flex: 1;
+        border: none;
+      }
+      input:focus {
+        outline: none;
+      }
     }
   }
   .exchange-line {
-    width: 50%;
-    margin-left: 26%;
+    display: flex;
+    justify-content: flex-end;
+    div {
+      width: 50%;
+      display: flex;
+      justify-content: flex-start;
+      input {
+        flex: 0 !important;
+        margin-right: 10px;
+      }
+    }
   }
+}
+.add-photo {
+  border: solid grey 1px;
+  background-color: white;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div {
+    width: 98%;
+    height: 85%;
+    border: dashed grey 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.add-photo-input {
+  display: none;
+}
+.add-photo-label {
+  border: solid #09adb6 2px;
+  border-radius: 10px;
+  color: #09adb6;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  span {
+    font-weight: bold;
+    font-size: 1.8em;
+    padding-right: 5px;
+  }
+}
+.submit-container {
+  display: flex;
+  justify-content: flex-end;
 }
