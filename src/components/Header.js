@@ -40,8 +40,9 @@ function Header({ token, setUser, search, setSearch }) {
           </Link>
         </div>
       ) : (
-        <div className="header-grey-buttons">
+        <div>
           <button
+            className="header-red-button"
             onClick={() => {
               setUser(null);
               navigate("/");

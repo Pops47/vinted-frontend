@@ -10,12 +10,16 @@ import Publish from "./containers/Publish";
 import Cookies from "js-cookie";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-import CheckoutForm from "./components/CheckoutForm";
+import Payment from "./components/Payment";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 library.add(faMagnifyingGlass);
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
+const stripePromise = loadStripe(
+  "pk_test_51HCObyDVswqktOkX6VVcoA7V2sjOJCUB4FBt3EOiAdSz5vWudpWxwcSY8z2feWXBq6lwMgAb5IVZZ1p84ntLq03H00LDVc2RwP"
+);
+
+// process.env.REACT_APP_STRIPE_PUBLIC_KEY
 
 function App() {
   const [token, setToken] = useState(Cookies.get("token") || null);
@@ -41,15 +45,15 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home search={search} />} />
-        <Route path="/offer/:id" element={<Offer />} />
+        <Route path="/offer/:id" element={<Offer token={token} />} />
         <Route path="/signup" element={<Signup setUser={setUser} />}></Route>
         <Route path="/login" element={<Login setUser={setUser} />}></Route>
         <Route path="/publish" element={<Publish token={token} />}></Route>
         <Route
-          path="/checkout"
+          path="/payment"
           element={
             <Elements stripe={stripePromise}>
-              <CheckoutForm />
+              <Payment />
             </Elements>
           }
         ></Route>

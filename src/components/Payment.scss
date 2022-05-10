@@ -1,0 +1,51 @@
+.buy-body {
+  background-color: #ebedee;
+  padding: 70px 0;
+}
+.buy-form {
+  width: 40%;
+  height: 600px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 30px;
+}
+
+.buy-top {
+  color: grey;
+  border-bottom: solid grey 1px;
+  padding-bottom: 40px;
+  > p {
+    padding-bottom: 30px;
+    font-size: 14px;
+  }
+  div {
+    display: flex;
+    justify-content: space-between;
+    p {
+      padding-bottom: 10px;
+    }
+  }
+}
+.buy-bottom {
+  padding-top: 40px;
+  div {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    padding-bottom: 20px;
+  }
+  p {
+    padding-bottom: 40px;
+    span {
+      font-weight: bold;
+    }
+  }
+}
+.payment-green-button {
+  background-color: #09adb6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px 0;
+}

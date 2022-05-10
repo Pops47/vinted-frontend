@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import "./Offer.scss";
 
-function Offer() {
+function Offer({ token }) {
   const { id } = useParams();
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -13,14 +13,12 @@ function Offer() {
       const response = await axios.get(
         `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
       );
-      console.log(response.data);
+
       setData(response.data);
       setIsLoading(false);
     };
     fetchData();
   }, [id]);
-
-  console.log(isLoading);
 
   return isLoading === true ? (
     <div>Loading...</div>
@@ -58,9 +56,18 @@ function Offer() {
             <p>{data.owner.account.username}</p>
           </div>
         </div>
-        <Link to="/checkout">
-          <button>Acheter</button>
-        </Link>
+        {token ? (
+          <Link
+            to="/payment"
+            state={{ title: data.product_name, price: data.product_price }}
+          >
+            <button>Acheter</button>
+          </Link>
+        ) : (
+          <Link to="/login">
+            <button>Acheter</button>
+          </Link>
+        )}
       </div>
     </div>
   );
