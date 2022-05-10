@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import "./Offer.scss";
 
 function Offer() {
   const { id } = useParams();
-
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -59,7 +58,9 @@ function Offer() {
             <p>{data.owner.account.username}</p>
           </div>
         </div>
-        <button>Acheter</button>
+        <Link to="/checkout">
+          <button>Acheter</button>
+        </Link>
       </div>
     </div>
   );
