@@ -18,7 +18,7 @@ function Publish({ token }) {
 
   return (
     <div>
-      {token !== null ? (
+      {token ? (
         <form
           className="publishForm"
           onSubmit={async (e) => {
@@ -155,7 +155,7 @@ function Publish({ token }) {
           </div>
         </form>
       ) : (
-        <Navigate to="/signup" />
+        <Navigate to="/login" />
       )}
     </div>
   );
