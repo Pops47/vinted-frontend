@@ -7,7 +7,7 @@ import "./Payment.scss";
 function Payment({ token }) {
   // import from Offer
   const location = useLocation();
-  const { title, price } = location.state;
+  const { title, price, username } = location.state;
   //import from stripe
   const stripe = useStripe();
   const elements = useElements();
@@ -20,7 +20,7 @@ function Payment({ token }) {
     const cardElement = elements.getElement(CardElement);
     //create a token sending data + user
     const stripeResponse = await stripe.createToken(cardElement, {
-      name: "Toto",
+      name: username,
     });
     console.log(stripeResponse);
     //get the token in response
@@ -79,7 +79,7 @@ function Payment({ token }) {
           </button>
         </form>
       ) : (
-        <span>Paiement effectué ! </span>
+        <span>Paiement effectué !</span>
       )}
     </div>
   );

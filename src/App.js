@@ -15,9 +15,11 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 library.add(faMagnifyingGlass);
 
-const stripePromise = loadStripe(process.env.REACT_APP_REACTEUR_PUBLIC_API);
+console.log(process.env.REACT_APP_REACTEUR_PUBLIC_API);
 
-// process.env.REACT_APP_STRIPE_PUBLIC_KEY
+const stripePromise = loadStripe(process.env.REACT_APP_REACTEUR_PUBLIC_API); //clé du back du Reacteur
+
+// ma clé perso : process.env.REACT_APP_STRIPE_PUBLIC_KEY
 
 function App() {
   const [token, setToken] = useState(Cookies.get("token") || null);

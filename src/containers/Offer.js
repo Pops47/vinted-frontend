@@ -59,7 +59,11 @@ function Offer({ token }) {
         {token ? (
           <Link
             to="/payment"
-            state={{ title: data.product_name, price: data.product_price }}
+            state={{
+              title: data.product_name,
+              price: data.product_price,
+              username: data.owner.account.username,
+            }}
           >
             <button>Acheter</button>
           </Link>
