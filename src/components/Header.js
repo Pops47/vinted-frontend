@@ -1,5 +1,6 @@
 import logoVinted from "../assets/images/logo-vinted.png";
 import burger from "../assets/images/menu-bar.png";
+import close from "../assets/images/close.png";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,7 +24,11 @@ function Header({ token, setUser, search, setSearch }) {
           }}
         />
         <div className="burger">
-          <img src={burger} onClick={toggleMenu} alt="" />
+          {!isMenuOpen ? (
+            <img src={burger} onClick={toggleMenu} alt="" />
+          ) : (
+            <img src={close} onClick={toggleMenu} alt="" />
+          )}
         </div>
       </div>
       <div className="line"></div>
