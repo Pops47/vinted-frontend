@@ -31,12 +31,18 @@ function Home({ search }) {
           alt="two women looking at clothes"
         />
         <img className="heroVector" src={heroVector} alt="ripped vector" />
-        <div className="boxInHero">
+        <div className="box boxInHero">
           <p>Prêts à faire du tri dans vos placards ?</p>
           <Link to="/publish">
             <button>Commencer à vendre</button>
           </Link>
         </div>
+      </div>
+      <div className="box boxUnderHero">
+        <p>Prêts à faire du tri dans vos placards ?</p>
+        <Link to="/publish">
+          <button>Commencer à vendre</button>
+        </Link>
       </div>
       <div className="homeItems">
         {data.offers.map((item) => {
