@@ -8,18 +8,10 @@ import Signup from "./containers/Signup";
 import Login from "./containers/Login";
 import Publish from "./containers/Publish";
 import Cookies from "js-cookie";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import Payment from "./components/Payment";
+import Payment from "./containers/Payment";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 library.add(faMagnifyingGlass);
-
-console.log(process.env.REACT_APP_REACTEUR_PUBLIC_API);
-
-const stripePromise = loadStripe(process.env.REACT_APP_REACTEUR_PUBLIC_API); //clé du back du Reacteur
-
-// ma clé perso : process.env.REACT_APP_STRIPE_PUBLIC_KEY
 
 function App() {
   const [token, setToken] = useState(Cookies.get("token") || null);
@@ -49,14 +41,7 @@ function App() {
         <Route path="/signup" element={<Signup setUser={setUser} />}></Route>
         <Route path="/login" element={<Login setUser={setUser} />}></Route>
         <Route path="/publish" element={<Publish token={token} />}></Route>
-        <Route
-          path="/payment"
-          element={
-            <Elements stripe={stripePromise}>
-              <Payment />
-            </Elements>
-          }
-        ></Route>
+        <Route path="/payment" element={<Payment />}></Route>
       </Routes>
     </Router>
   );
