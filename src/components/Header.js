@@ -1,23 +1,32 @@
 import logoVinted from "../assets/images/logo-vinted.png";
+import burger from "../assets/images/menu-bar.png";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Header.scss";
 
 function Header({ token, setUser, search, setSearch }) {
   const navigate = useNavigate();
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
   return (
     <div className="header">
-      <img
-        className="logoVinted"
-        src={logoVinted}
-        alt="logo Vinted"
-        onClick={() => {
-          navigate("/");
-        }}
-      />
-
+      <div className="small-screen-top-container">
+        <img
+          className="logo-vinted"
+          src={logoVinted}
+          alt="logo Vinted"
+          onClick={() => {
+            navigate("/");
+          }}
+        />
+        <div className="burger">
+          <img src={burger} onClick={toggleMenu} alt="" />
+        </div>
+      </div>
+      <div className="line"></div>
       <div className="searchbar">
         <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" className="icon" />
         <input
@@ -31,7 +40,9 @@ function Header({ token, setUser, search, setSearch }) {
         />
       </div>
       {token === null ? (
-        <div className="header-grey-buttons">
+        <div
+          className={`header-white-buttons ${isMenuOpen ? "show-buttons" : ""}`}
+        >
           <Link to="/signup">
             <button>S'inscrire</button>
           </Link>
@@ -40,9 +51,10 @@ function Header({ token, setUser, search, setSearch }) {
           </Link>
         </div>
       ) : (
-        <div>
+        <div
+          className={`header-red-button ${isMenuOpen ? "show-buttons" : ""}`}
+        >
           <button
-            className="header-red-button"
             onClick={() => {
               setUser(null);
               navigate("/");
@@ -53,7 +65,11 @@ function Header({ token, setUser, search, setSearch }) {
         </div>
       )}
       <Link to="/publish">
-        <button className="header-green-button">Vends tes articles</button>
+        <button
+          className={`header-blue-button ${isMenuOpen ? "show-buttons" : ""}`}
+        >
+          Vends tes articles
+        </button>
       </Link>
     </div>
   );

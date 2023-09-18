@@ -1,34 +1,31 @@
 .header {
   width: 85%;
-  height: 65px;
   margin: 0 auto;
+  padding: 5px 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: 60px;
   button {
-    height: 30px;
-    padding: 0 10px;
+    padding: 7px 10px;
   }
 }
-.header-grey-buttons {
-  display: flex;
-  gap: 20px;
+.header-white-buttons {
   button {
     border: none;
     border: solid #2cb1c0 1px;
     border-radius: 5px;
     color: #2cb1c0;
     background: transparent;
+    margin-right: 20px;
   }
 }
-.header-green-button {
+.header-blue-button {
   background-color: #09adb6;
   color: white;
   border: none;
   border-radius: 5px;
 }
-.header-green-button:hover {
+.header-blue-button:hover {
   cursor: pointer;
 }
 .header-red-button {
@@ -40,22 +37,21 @@
 .header-red-button:hover {
   cursor: pointer;
 }
-.logoVinted {
-  height: 45px;
+.logo-vinted {
+  height: 40px;
 }
-.logoVinted:hover {
+.logo-vinted:hover {
   cursor: pointer;
 }
-
 .searchbar {
   height: 40px;
   width: 400px;
+  min-width: 300px;
   border-radius: 5px;
   background-color: #f5f6f7;
   color: #999999;
   display: flex;
   align-items: center;
-  gap: 10px;
   input {
     height: 100%;
     background-color: #f5f6f7;
@@ -73,4 +69,51 @@
 .searchbar::placeholder {
   color: #999999;
   font-size: 16px;
+}
+.burger {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    width: 95%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .logo-vinted {
+    height: 30px;
+  }
+  .header-white-buttons,
+  .header-red-button,
+  .header-blue-button {
+    display: none;
+  }
+  .show-buttons {
+    display: inline-block;
+    margin: 10px;
+  }
+  .searchbar {
+    width: 100%;
+  }
+  .line {
+    height: 1px;
+    width: 100%;
+    background-color: #f5f6f7;
+    margin: 15px 0 10px 0;
+  }
+  .burger {
+    display: block;
+    display: flex;
+    align-items: center;
+  }
+  .burger img {
+    width: 30px;
+    padding-top: 10px;
+  }
+  .small-screen-top-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

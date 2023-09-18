@@ -64,6 +64,9 @@
 .add-photo-input {
   display: none;
 }
+.add-photo-input:hover {
+  cursor: pointer;
+}
 .add-photo-label {
   border: solid #09adb6 2px;
   border-radius: 10px;
@@ -81,4 +84,7 @@
 .submit-container {
   display: flex;
   justify-content: flex-end;
+}
+.submit-container input:hover {
+  cursor: pointer;
 }
