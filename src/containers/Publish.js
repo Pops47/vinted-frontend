@@ -14,6 +14,9 @@ function Publish({ token }) {
   const [price, setPrice] = useState("");
   const [exchanges, setExchanges] = useState(false);
   const [picture, setPicture] = useState({});
+
+  const [displayImage, setDisplayImage] = useState(null);
+
   const navigate = useNavigate();
 
   return (
@@ -57,15 +60,29 @@ function Publish({ token }) {
             <p>Vends ton article</p>
             <section className="add-photo">
               <div className="add-photo-int">
-                <input
-                  className="add-photo-input"
-                  id="add-photo"
-                  type="file"
-                  onChange={(e) => setPicture(e.target.files[0])}
-                />
-                <label for="add-photo" className="add-photo-label">
-                  <span>+ </span> Ajoute une photo
-                </label>
+                {displayImage === null ? (
+                  <div>
+                    <input
+                      className="add-photo-input"
+                      id="add-photo"
+                      type="file"
+                      onChange={(e) => {
+                        setPicture(e.target.files[0]);
+                        setDisplayImage(URL.createObjectURL(e.target.files[0]));
+                      }}
+                    />
+                    <label for="add-photo" className="add-photo-label">
+                      <span>+ </span> Ajoute une photo
+                    </label>
+                  </div>
+                ) : (
+                  <div>
+                    <img src={displayImage} alt="" />
+                    <button onClick={() => setDisplayImage(null)}>
+                      Supprimer
+                    </button>
+                  </div>
+                )}
               </div>
             </section>
             <section>

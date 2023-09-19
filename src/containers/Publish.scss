@@ -52,20 +52,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  div {
+  .add-photo-int {
     width: 98%;
     height: 85%;
     border: dashed grey 1px;
     display: flex;
     justify-content: center;
     align-items: center;
+    img {
+      height: 100px;
+      border-radius: 10%;
+    }
+    div {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 20px;
+    }
+    button {
+      padding: 7px 10px;
+      border: solid #09adb6 2px;
+      border-radius: 10px;
+      color: #09adb6;
+      background-color: white;
+    }
+    button:hover {
+      background-color: #eaedee;
+    }
   }
 }
 .add-photo-input {
   display: none;
 }
-.add-photo-input:hover {
+.add-photo-int label:hover {
   cursor: pointer;
+  background-color: #eaedee;
 }
 .add-photo-label {
   border: solid #09adb6 2px;
@@ -87,4 +108,10 @@
 }
 .submit-container input:hover {
   cursor: pointer;
+}
+
+@media (max-width: 550px) {
+  .publish-form {
+    width: 90%;
+  }
 }
