@@ -4,7 +4,7 @@
 }
 .buy-form {
   width: 40%;
-  height: 600px;
+  height: 630px;
   margin: 0 auto;
   background-color: white;
   padding: 30px;
@@ -48,6 +48,12 @@
   }
 }
 @media (max-width: 800px) {
+  .buy-body {
+    padding: 30px 0;
+  }
+  .buy-bottom {
+    padding-top: 30px;
+  }
   .buy-form {
     width: 85%;
   }
