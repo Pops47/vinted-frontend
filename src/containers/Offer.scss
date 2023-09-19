@@ -61,3 +61,12 @@
     margin-right: 10px;
   }
 }
+
+@media (max-width: 800px) {
+  .offer-in-offer {
+    flex-direction: column;
+    img {
+      width: 80%;
+    }
+  }
+}
