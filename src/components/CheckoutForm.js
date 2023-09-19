@@ -50,6 +50,10 @@ function CheckoutForm({ title, price }) {
           disabled={disabled}
         />
       </form>
+      <p>
+        Ceci est un site fictif. Vous pouvez tester un paiement à l'aide du
+        numéro de carte suivant : 4242 4242 4242 4242 4/24 242
+      </p>
     </div>
   ) : (
     <div>
