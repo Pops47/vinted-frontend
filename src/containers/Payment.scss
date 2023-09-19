@@ -41,3 +41,14 @@
     }
   }
 }
+
+@media (max-width: 1200px) {
+  .buy-form {
+    width: 70%;
+  }
+}
+@media (max-width: 800px) {
+  .buy-form {
+    width: 85%;
+  }
+}
