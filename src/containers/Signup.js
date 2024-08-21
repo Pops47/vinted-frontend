@@ -17,7 +17,7 @@ function Signup({ setUser }) {
 
     try {
       const response = await axios.post(
-        `${process.env.VINTED_BACKEND_URL}/user/signup`,
+        `${process.env.REACT_APP_VINTED_BACKEND_URL}/user/signup`,
         {
           username: username,
           email: email,
@@ -26,7 +26,7 @@ function Signup({ setUser }) {
         }
       );
       setUser(response.data.token);
-      navigate("/publish");
+      navigate("/");
     } catch (error) {
       if (error.response.status === 409) {
         setErrorMessage("Cet email est déja utilisé !");

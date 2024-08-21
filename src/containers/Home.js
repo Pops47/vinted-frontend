@@ -10,14 +10,18 @@ function Home({ search }) {
   const [data, setData] = useState();
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(
-        `${process.env.VINTED_BACKEND_URL}/offers`
-      );
-      setData(response.data);
-      setIsLoading(false);
-    };
-    fetchData();
+    try {
+      const fetchData = async () => {
+        const response = await axios.get(
+          `${process.env.REACT_APP_VINTED_BACKEND_URL}/offers`
+        );
+        setData(response.data);
+        setIsLoading(false);
+      };
+      fetchData();
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
   return isLoading ? (

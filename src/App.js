@@ -1,16 +1,16 @@
-import "./App.scss";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
-import Home from "./containers/Home";
-import Offer from "./containers/Offer";
-import Header from "./components/Header";
-import Signup from "./containers/Signup";
-import Login from "./containers/Login";
-import Publish from "./containers/Publish";
-import Cookies from "js-cookie";
-import Payment from "./containers/Payment";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import Cookies from "js-cookie";
+import { useState } from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import "./App.scss";
+import Header from "./components/Header";
+import Home from "./containers/Home";
+import Login from "./containers/Login";
+import Offer from "./containers/Offer";
+import Payment from "./containers/Payment";
+import Publish from "./containers/Publish";
+import Signup from "./containers/Signup";
 library.add(faMagnifyingGlass);
 
 function App() {

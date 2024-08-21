@@ -16,7 +16,7 @@ function Login({ setUser }) {
 
     try {
       const response = await axios.post(
-        `${process.env.VINTED_BACKEND_URL}/user/login`,
+        `${process.env.REACT_APP_VINTED_BACKEND_URL}/user/login`,
         {
           email: email,
           password: password,

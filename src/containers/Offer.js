@@ -11,7 +11,7 @@ function Offer({ token }) {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `${process.env.VINTED_BACKEND_URL}/offer/${id}`
+        `${process.env.REACT_APP_VINTED_BACKEND_URL}/offer/${id}`
       );
 
       setData(response.data);

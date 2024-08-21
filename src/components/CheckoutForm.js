@@ -21,7 +21,7 @@ function CheckoutForm({ title, price }) {
       });
       const stripeToken = stripeResponse.token.id;
       const response = await axios.post(
-        `${process.env.VINTED_BACKEND_URL}/payment`,
+        `${process.env.REACT_APP_VINTED_BACKEND_URL}/payment`,
         {
           token: stripeToken,
           title: title,

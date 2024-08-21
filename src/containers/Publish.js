@@ -42,7 +42,7 @@ function Publish({ token }) {
 
               try {
                 const response = await axios.post(
-                  `${process.env.VINTED_BACKEND_URL}/offer/publish`,
+                  `${process.env.REACT_APP_VINTED_BACKEND_URL}/offer/publish`,
                   formData,
                   {
                     headers: {

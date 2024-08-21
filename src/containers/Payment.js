@@ -9,7 +9,7 @@ function Payment() {
   const location = useLocation();
   const { title, price } = location.state;
 
-  const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_API);
+  const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_API);
 
   return (
     <div className="buy-body">
