@@ -1,8 +1,8 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import hero from "../assets/images/hero.jpg";
 import heroVector from "../assets/images/svgexport-8.svg";
-import axios from "axios";
-import { useEffect, useState } from "react";
 import "./Home.scss";
 
 function Home({ search }) {
@@ -12,7 +12,7 @@ function Home({ search }) {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        "https://lereacteur-vinted-api.herokuapp.com/offers"
+        `${process.env.VINTED_BACKEND_URL}/offers`
       );
       setData(response.data);
       setIsLoading(false);

@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import "./Offer.scss";
 
 function Offer({ token }) {
@@ -11,7 +11,7 @@ function Offer({ token }) {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+        `${process.env.VINTED_BACKEND_URL}/offer/${id}`
       );
 
       setData(response.data);

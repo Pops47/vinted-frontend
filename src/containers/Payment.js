@@ -2,14 +2,14 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { useLocation } from "react-router-dom";
-import "./Payment.scss";
 import CheckoutForm from "../components/CheckoutForm";
+import "./Payment.scss";
 
 function Payment() {
   const location = useLocation();
   const { title, price } = location.state;
 
-  const stripePromise = loadStripe(process.env.REACT_APP_REACTEUR_PUBLIC_API); //clé du back du Reacteur
+  const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_API);
 
   return (
     <div className="buy-body">

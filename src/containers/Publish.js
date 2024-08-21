@@ -1,6 +1,6 @@
-import { useNavigate, Navigate } from "react-router-dom";
-import { useState } from "react";
 import axios from "axios";
+import { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import "./Publish.scss";
 
 function Publish({ token }) {
@@ -42,7 +42,7 @@ function Publish({ token }) {
 
               try {
                 const response = await axios.post(
-                  "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
+                  `${process.env.VINTED_BACKEND_URL}/offer/publish`,
                   formData,
                   {
                     headers: {

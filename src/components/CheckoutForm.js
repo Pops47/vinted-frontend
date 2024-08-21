@@ -1,8 +1,8 @@
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { useState } from "react";
-import "./CheckoutForm.scss";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import axios from "axios";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import "./CheckoutForm.scss";
 
 function CheckoutForm({ title, price }) {
   const stripe = useStripe();
@@ -21,7 +21,7 @@ function CheckoutForm({ title, price }) {
       });
       const stripeToken = stripeResponse.token.id;
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/payment",
+        `${process.env.VINTED_BACKEND_URL}/payment`,
         {
           token: stripeToken,
           title: title,

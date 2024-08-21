@@ -8,7 +8,6 @@ function Login({ setUser }) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (event) => {
@@ -17,7 +16,7 @@ function Login({ setUser }) {
 
     try {
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/login",
+        `${process.env.VINTED_BACKEND_URL}/user/login`,
         {
           email: email,
           password: password,

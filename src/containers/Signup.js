@@ -1,7 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
-import "./SignupAndLogin.scss";
 import axios from "axios";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./SignupAndLogin.scss";
 
 function Signup({ setUser }) {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ function Signup({ setUser }) {
 
     try {
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        `${process.env.VINTED_BACKEND_URL}/user/signup`,
         {
           username: username,
           email: email,
