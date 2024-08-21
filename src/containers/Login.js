@@ -1,7 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
-import "./SignupAndLogin.scss";
 import axios from "axios";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./SignupAndLogin.scss";
 
 function Login({ setUser }) {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ function Login({ setUser }) {
         }
       );
       setUser(response.data.token);
-      navigate("/publish");
+      navigate("/");
     } catch (error) {
       if (error.response.status === 401) {
         setErrorMessage("Mot de passe incorrect");
