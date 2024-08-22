@@ -53,7 +53,8 @@ function CheckoutForm({ title, price }) {
       </form>
       <p class="test-message">
         Vous pouvez tester un paiement fictif à l'aide du numéro de carte
-        suivant : 4242 4242 4242 4242 4/24 242
+        suivant : 4242 4242 4242 4242 , une date d'expiration vallide telle que
+        12/34, et un CVC aléatoire de 3 chiffres
       </p>
     </div>
   ) : (
