@@ -19,7 +19,9 @@ function CheckoutForm({ title, price }) {
         name: "12345678910",
         //valeur arbitraire (a retrouver avec un cookie par exemple)
       });
+      console.log("🚀 ~ handleSubmit ~ stripeResponse:", stripeResponse);
       const stripeToken = stripeResponse.token.id;
+      console.log("🚀 ~ handleSubmit ~ stripeToken:", stripeToken);
       const response = await axios.post(
         `${process.env.REACT_APP_VINTED_BACKEND_URL}/payment`,
         {
@@ -28,7 +30,6 @@ function CheckoutForm({ title, price }) {
           amount: price,
         }
       );
-      console.log(response.data);
       setDisabled(false);
       if (response.data.status === "succeeded") {
         alert("Votre paiement a bien été pris en compte");
